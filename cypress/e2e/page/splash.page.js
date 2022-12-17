@@ -1,6 +1,14 @@
 class SplashPage {
   get title() {
-    return cy.get('#login-text');
+    return cy.get("#login-text");
+  }
+
+  get callToAction() {
+    return cy.get("#signInOrRegister");
+  }
+
+  get splashImage() {
+    return cy.get("[alt='Login Image']");
   }
 }
 

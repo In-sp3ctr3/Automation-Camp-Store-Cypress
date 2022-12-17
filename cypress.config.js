@@ -13,8 +13,8 @@ module.exports = defineConfig({
     json: true
     },
     chromeWebSecurity: false,
-
+    experimentalOriginDependencies: true,
     baseUrl: 'https://ui-automation-camp.vercel.app/',
-    specPattern: 'cypress/e2e/test/**/*.cy.{js,jsx,ts,tsx}',
+    specPattern: 'cypress/e2e/test/**/**/*.cy.{js,jsx,ts,tsx}',
   },
 });
