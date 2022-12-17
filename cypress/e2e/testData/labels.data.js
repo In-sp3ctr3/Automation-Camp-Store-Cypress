@@ -19,5 +19,10 @@ module.exports = {
         blankEmail: "Email can't be blank",
         blankPassword: "Password can't be blank",
         invalidCredentials: "wrong email or password"
+    },
+    wishlist : {
+        productAddedToWishlist: 'added to favorites',
+        productRemovedFromWishlist: 'removed from favorites',
+        emptyWishlist: 'No favorites added!'
     }
 };
