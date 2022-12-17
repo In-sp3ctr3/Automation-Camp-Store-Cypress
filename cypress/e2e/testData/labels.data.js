@@ -1,3 +1,5 @@
+const { default: productsPage } = require("../page/products-cart.page");
+
 module.exports = {
     splashPage : {
 
@@ -19,5 +21,9 @@ module.exports = {
         blankEmail: "Email can't be blank",
         blankPassword: "Password can't be blank",
         invalidCredentials: "wrong email or password"
+    },
+    productsPage : {
+        title: 'Automation Camp Store',
+        cartTitle: 'Cart summary'
     }
 };
