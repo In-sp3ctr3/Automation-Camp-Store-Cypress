@@ -1,10 +1,10 @@
-import users from "../../../testData/users.data";
-import labels from "../../../testData/labels.data";
-import authPage from "../../../page/authentication.page";
-import route from "../../../testData/routes.data";
-import splashPage from "../../../page/splash.page";
-import productsPage from "../../../page/products.page";
-import cartPage from "../../../page/cart.page";
+import users from "../../testData/users.data";
+import labels from "../../testData/labels.data";
+import authPage from "../../page/authentication.page";
+import route from "../../testData/routes.data";
+import splashPage from "../../page/splash.page";
+import productsPage from "../../page/products-cart.page";
+import products from "../../testData/products.data";
 
 describe ("Add To Cart Tests", () => { 
     beforeEach(() => {
@@ -33,9 +33,104 @@ describe ("Add To Cart Tests", () => {
     });
 
     it("should add a single item to the cart", () => {
-        // Click the first item in the products page
-        productsPage.getProductAddToCartButton(0).click();
+
+        // Verify that the products page is visible
+        productsPage.homePageTitle.should("be.visible");
+        productsPage.homePageTitle.should("contain", labels.productsPage.title);
+
+        // Add the first item to the cart
+        productsPage.addToCart(products.product0.name);
+
+        cy.url().should("include", route.cart);
+
+        productsPage.getCartTitle().should("contain", labels.productsPage.cartTitle);
+
+        // Verify that the cart modal contains the correct item
+        productsPage.getProductTitle().should("contain", products.product0.name);
+        productsPage.getProductPrice().should("contain", products.product0.price);
+
+        // Verify that the cart modal contains the correct quantity
+        productsPage.getCartQuantity(1).should("contain", "1");
+
+        productsPage.getCartCloseButton().click();
         
+        cy.url().should("include", route.products); 
+    });
+
+    it("should add multiple items to the cart", () => {
+        // Add the first item to the cart
+        productsPage.addToCart(products.product0.name);
+
+        cy.url().should("include", route.cart);
+
+        productsPage.getCartTitle().should("contain", labels.productsPage.cartTitle);
+
+        // Verify that the cart modal contains the correct item
+        productsPage.getProductTitle().should("contain", products.product0.name);
+        productsPage.getProductPrice().should("contain", products.product0.price);
+
+        // Verify that the cart modal contains the correct quantity
+        productsPage.getCartQuantity(1).should("contain", "1");
+
+        productsPage.getCartCloseButton().click();
+        
+        cy.url().should("include", route.products); 
+
+        // Add the second item to the cart
+        productsPage.addToCart(products.product1.name);
+
+        cy.url().should("include", route.cart);
+
+        productsPage.getCartTitle().should("contain", labels.productsPage.cartTitle);
+
+        // Verify that the cart modal contains the correct item
+        productsPage.getProductTitle().should("contain", products.product1.name);
+        productsPage.getProductPrice().should("contain", products.product1.price);
+
+        // Verify that the cart modal contains the correct quantity
+        productsPage.getCartQuantity(1).should("contain", "1");
+
+        productsPage.getCartCloseButton().click();
+        
+        cy.url().should("include", route.products); 
+    });
+
+    it("should add multiple of the same item to the cart", () => {
+        // Add the first item to the cart
+        productsPage.addToCart(products.product0.name);
+
+        cy.url().should("include", route.cart);
+
+        productsPage.getCartTitle().should("contain", labels.productsPage.cartTitle);
+
+        // Verify that the cart modal contains the correct item
+        productsPage.getProductTitle().should("contain", products.product0.name);
+        productsPage.getProductPrice().should("contain", products.product0.price);
+
+        // Verify that the cart modal contains the correct quantity
+        productsPage.getCartQuantity(1).should("contain", "1");
+
+        productsPage.getCartCloseButton().click();
+        
+        cy.url().should("include", route.products); 
+
+        // Add the second item to the cart
+        productsPage.addToCart(products.product0.name);
+
+        cy.url().should("include", route.cart);
+
+        productsPage.getCartTitle().should("contain", labels.productsPage.cartTitle);
+
+        // Verify that the cart contains the correct item
+        productsPage.getProductTitle().should("contain", products.product0.name);
+        productsPage.getProductPrice().should("contain", products.product0.price);
+
+        // Verify that the cart contains the correct quantity
+        productsPage.getCartQuantity(1).should("contain", "2");
+
+        productsPage.getCartCloseButton().click();
+        
+        cy.url().should("include", route.products); 
     });
 
 
