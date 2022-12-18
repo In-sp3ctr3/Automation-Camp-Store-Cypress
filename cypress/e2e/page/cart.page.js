@@ -6,6 +6,10 @@ class Cart {
     return cy.get("#top-cart");
   }
 
+    get checkoutButton() {
+      return cy.get("button[class='snipcart-button-primary snipcart-base-button is-icon-right']");
+  }
+
   get cartQuantity() {
     return cy.get(".snipcart-item-quantity__quantity span");
   }
@@ -37,18 +41,25 @@ class Cart {
         cy.get(addToCart).should("be.visible");
         cy.get(addToCart).focus();
         cy.get(addToCart).click( {force: true}); 
-        productsPage.getCartTitle().should("contain", labels.productsPage.cartTitle);
+       // productsPage.getCartTitle().should("contain", labels.productsPage.cartTitle);
         cy.url().should("include", route.cart);
       }
 
-  openCart() {
-    this.cartButton.should("be.visible").click({force: true});
-    cy.wait(5000);
-  }
+      openCart() {
+        this.cartButton.should("be.visible").click({force: true});
+        cy.wait(5000);
+      }
 
-  closeCart() {
-      this.returnButton.should("be.visible").click();
-  }
+      closeCart() {
+          this.returnButton.should("be.visible").click();
+      }
 
+      checkout() {
+        this.checkoutButton.scrollIntoView();
+        cy.wait(2000);
+        this.checkoutButton.should("be.visible");
+        this.checkoutButton.focus().trigger("click");
+        cy.wait(2000);
+      }
 }
 module.exports = new Cart();
