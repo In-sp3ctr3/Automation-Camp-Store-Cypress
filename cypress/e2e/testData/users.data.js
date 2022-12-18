@@ -60,4 +60,32 @@ module.exports = {
       error: labels.authPage.invalidPassword,
     },
   },
+  Checkout: {
+    validUser: {
+      firstName: "User",
+      lastName: "Lastname",
+      email: 'Test@email.com',
+      address: "29 Fake Street",
+      suite: "9",
+      city: "Quebec City",
+      country: "Canada",
+      province: "Quebec",
+      countryCode: "CA",
+      provinceCode: "QC",
+      postalCode: "G1R 2B9"
+    },
+    invalidUser: {
+      firstName: "User",
+      lastName: "Lastname",
+      email: null,
+      address: "29 Fake Street",
+      suite: "9",
+      city: "Quebec City",
+      country: "Canada",
+      province: "Quebec",
+      countryCode: "CA",
+      provinceCode: "QC",
+      postalCode: "G1R 2B9"
+    },
+  }
 };

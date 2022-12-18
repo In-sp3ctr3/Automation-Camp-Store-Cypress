@@ -5,5 +5,7 @@ module.exports = {
     login: 'https://dev-mlluudmotpwoldtv.us.auth0.com/login?',
     products: 'https://ui-automation-camp.vercel.app/products',
     cart: '/cart',
+    checkout: '/checkout',
+    order: '/order',
 };
 
