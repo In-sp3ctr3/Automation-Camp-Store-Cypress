@@ -64,7 +64,7 @@ class ProductPage {
         return cy.get(".snipcart-modal__close-title");
     }
 
-    get searchField() {
+    get searchInput() {
     return "#search";
     }
 
@@ -79,6 +79,12 @@ class ProductPage {
     getEmptyCartTitle () {
     return cy.get(".snipcart-empty-cart__title");
     }
+
+    search(input) {
+        cy.get(this.searchInput).scrollIntoView();
+        cy.wait(1200);
+        cy.get(this.searchInput).type(input);
+      }
 
     addToCart(itemName) {
         let addToCartBtn = `[data-item-name='${itemName}']`;
