@@ -24,6 +24,7 @@ module.exports = {
     },
     productsPage : {
         title: 'Automation Camp Store',
-        cartTitle: 'Cart summary'
+        cartTitle: 'Cart summary',
+        emptyCartTitle: 'Your cart is empty',
     }
 };

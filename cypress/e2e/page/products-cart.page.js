@@ -60,14 +60,17 @@ class ProductPage {
     return cy.get(`li:nth-of-type(${index}) .snipcart-item-quantity__quantity > .snipcart__font--secondary`);
     }
 
+    getEmptyCartTitle () {
+    return cy.get(".snipcart-empty-cart__title");
+    }
+
     addToCart(itemName) {
         let addToCartBtn = `[data-item-name='${itemName}']`;
         cy.get(addToCartBtn).scrollIntoView();
-        cy.wait(10000);
+        cy.wait(14000);
         cy.get(addToCartBtn).should("be.visible");
         cy.get(addToCartBtn).focus();
         cy.get(addToCartBtn).click( {force: true}); 
-
       }
 }
 
