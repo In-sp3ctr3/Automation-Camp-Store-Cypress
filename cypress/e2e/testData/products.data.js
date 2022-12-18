@@ -116,8 +116,44 @@ module.exports = {
   product15: {
     id: "product-15",
     name: "Quality Heal Shoes",
-    price: 40,
+    price: 20,
     badge: "shoes",
     description: "Women's Knee High Boots - Comfortable Walking Boot with Low Heel - Fashionable Outdoor Winter Boot for Women",
+  },
+  product16: {
+    id: "product-16",
+    name: "Red Couch",
+    price: 320,
+    badge: "couch"
+  },
+  product17: {
+    id: "product-17",
+    name: "White Couch",
+    price: 234,
+    badge: "couch"
+  },
+  product18: {
+    id: "product-18",
+    name: "Gray Couch",
+    price: 550,
+    badge: "couch"
+  },
+  product19: {
+    id: "product-19",
+    name: "Mackbook Pro",
+    price: 2000,
+    badge: "laptop"
+  },
+  product20: {
+    id: "product-20",
+    name: "Dell Laptop",
+    price: 1000,
+    badge: "laptop"
+  },
+  product21: {
+    id: "product-21",
+    name: "HP Laptop",
+    price: 680,
+    badge: "laptop"
   }
 };

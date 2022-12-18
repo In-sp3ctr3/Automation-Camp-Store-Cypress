@@ -44,6 +44,10 @@ class ProductPage {
     return cy.get(`.css-12qzrsi > div:nth-of-type(${index}) .css-1ccau2i`);
     }
 
+    get productNames() {
+        return "div[id^='product'] p.css-1n64n71";
+    }
+
     getProductQuantity (index) {
     return cy.get(`.css-12qzrsi > div:nth-of-type(${index}) .chakra-numberinput__field`);
     }
@@ -52,8 +56,20 @@ class ProductPage {
     return cy.get(".snipcart-cart-header__title");
     }
 
+    get selectSortDropDown() {
+        return "#sort";
+    }
+    
     getCartCloseButton () {
-    return cy.get(".snipcart-modal__close-title");
+        return cy.get(".snipcart-modal__close-title");
+    }
+
+    get searchField() {
+    return "#search";
+    }
+
+    get productCategories() {
+    return "div[id^='product'] div span";
     }
 
     getCartQuantity (index) {
@@ -67,11 +83,19 @@ class ProductPage {
     addToCart(itemName) {
         let addToCartBtn = `[data-item-name='${itemName}']`;
         cy.get(addToCartBtn).scrollIntoView();
-        cy.wait(14000);
+        cy.wait(2000);
         cy.get(addToCartBtn).should("be.visible");
         cy.get(addToCartBtn).focus();
         cy.get(addToCartBtn).click( {force: true}); 
       }
+
+      sort(sort) {
+        cy.get(this.selectSortDropDown).scrollIntoView();
+        cy.wait(1900);
+        cy.get(this.selectSortDropDown).select(sort);
+        cy.wait(1900);
+      }
+
 }
 
 export default new ProductPage()
