@@ -72,7 +72,9 @@ module.exports = {
       province: "Quebec",
       countryCode: "CA",
       provinceCode: "QC",
-      postalCode: "G1R 2B9"
+      postalCode: "G1R 2B9",
+      subject: "Test",
+      message: "Test"
     },
     invalidUser: {
       firstName: "User",
@@ -85,7 +87,9 @@ module.exports = {
       province: "Quebec",
       countryCode: "CA",
       provinceCode: "QC",
-      postalCode: "G1R 2B9"
+      postalCode: "G1R 2B9",
+      subject: "Test",
+      message: "Test"
     },
   }
 };
